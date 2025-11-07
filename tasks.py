@@ -25,6 +25,7 @@ def my_mlp(w, X, sigma=np.tanh):
     a1 = sigma(W1 @ X)
     a2 = sigma(W2 @ a1)
     f  = sigma(W3 @ a2)
+    
     return f
 # -----------------------------------------------
  
@@ -41,6 +42,7 @@ def my_mlp(w, X, sigma=np.tanh):
 def MSE_func(w, X, y): # give the appropriate name and arguments
     f = my_mlp(w, X)
     MSE = np.sum((y-f)**2)
+    
     return MSE
 # -----------------------------------------------
  
@@ -59,6 +61,7 @@ def MSE_func(w, X, y): # give the appropriate name and arguments
 def dR(beta, x, y):
     dbeta_0 = 2*np.mean((beta[0] + beta[1]*x - y))   # implement the above formula for dR/dβ₀
     dbeta_1 = 2*np.mean((beta[0] + beta[1]*x - y)*x) # implement the above formula for dR/dβ₁
+    
     return np.array([dbeta_0, dbeta_1])
  
 # -----------------------------------------------
